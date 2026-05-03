@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Factwise — Verify AI-generated text instantly. Know what's accurate, what's questionable, and what's wrong." />
+  <title>Factwise — AI Fact Checker</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ── Navigation ── -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">
+        <span class="logo-mark">F</span>
+        <span class="logo-text">Factwise</span>
+      </div>
+      <div class="nav-links">
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <button class="btn-outline" onclick="scrollToChecker()">Try Free</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">Free to use · No signup required</div>
+      <h1 class="hero-title">
+        Don't trust AI blindly.<br />
+        <span class="hero-highlight">Verify it.</span>
+      </h1>
+      <p class="hero-sub">
+        Paste any AI-generated text and Factwise tells you exactly what's accurate,
+        what's questionable, and what's wrong — in plain English anyone can understand.
+      </p>
+      <button class="btn-primary hero-cta" onclick="scrollToChecker()">
+        Check your text →
+      </button>
+    </div>
+  </section>
+
+  <!-- ── Checker ── -->
+  <section class="checker-section" id="checker">
+    <div class="checker-inner">
+      <div class="checker-box">
+        <div class="checker-header">
+          <h2 class="checker-title">Paste your AI-generated text</h2>
+          <span class="checker-counter"><span id="charCount">0</span> / 10000</span>
+        </div>
+        <textarea
+          id="inputText"
+          class="checker-textarea"
+          placeholder="Paste any AI-generated paragraph, summary, or answer here..."
+          maxlength="10000"
+          spellcheck="false"
+        ></textarea>
+        <div class="checker-footer">
+          <span class="checker-limit">10 free verifications per day</span>
+          <button class="btn-primary" id="verifyBtn" onclick="verifyText()">
+            <span id="btnText">Verify Text</span>
+            <span id="btnLoader" class="btn-loader hidden"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div id="results" class="results hidden">
+
+        <!-- Overall verdict -->
+        <div class="verdict-card" id="verdictCard">
+          <div class="verdict-top">
+            <div class="verdict-icon" id="verdictIcon"></div>
+            <div>
+              <div class="verdict-label">Overall Verdict</div>
+              <div class="verdict-value" id="verdictValue"></div>
+            </div>
+          </div>
+          <p class="verdict-summary" id="verdictSummary"></p>
+        </div>
+
+        <!-- Claims -->
+        <div class="claims-section">
+          <h3 class="claims-title">Claim by Claim Breakdown</h3>
+          <div id="claimsList" class="claims-list"></div>
+        </div>
+
+        <!-- Tip -->
+        <div class="tip-card" id="tipCard">
+          <span class="tip-icon">💡</span>
+          <p class="tip-text" id="tipText"></p>
+        </div>
+
+        <!-- Check another -->
+        <button class="btn-outline btn-full" onclick="resetChecker()">
+          Check another text
+        </button>
+
+      </div>
+
+      <!-- Error -->
+      <div id="errorBox" class="error-box hidden">
+        <span class="error-icon">⚠️</span>
+        <p id="errorText"></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── How it works ── -->
+  <section class="how-section" id="how-it-works">
+    <div class="section-inner">
+      <h2 class="section-title">How Factwise works</h2>
+      <p class="section-sub">Three steps. No technical knowledge needed.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Paste your text</h3>
+          <p class="step-desc">Copy any AI-generated content — an essay, a summary, a research answer — and paste it in.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3 class="step-title">We analyze the claims</h3>
+          <p class="step-desc">Factwise breaks the text into individual claims and checks each one against what is actually known to be true.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Get a plain English report</h3>
+          <p class="step-desc">No jargon, no confusion. You get a clear verdict on what to trust, what to double-check, and what to ignore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Pricing ── -->
+  <section class="pricing-section" id="pricing">
+    <div class="section-inner">
+      <h2 class="section-title">Simple pricing</h2>
+      <p class="section-sub">Start free. Upgrade when you need more.</p>
+      <div class="pricing-cards">
+
+        <div class="pricing-card">
+          <div class="pricing-plan">Free</div>
+          <div class="pricing-price">₹0<span>/month</span></div>
+          <ul class="pricing-features">
+            <li>✓ 10 verifications per day</li>
+            <li>✓ Full claim breakdown</li>
+            <li>✓ Plain English reports</li>
+            <li>✓ No signup required</li>
+          </ul>
+          <button class="btn-outline btn-full" onclick="scrollToChecker()">Get started free</button>
+        </div>
+
+        <div class="pricing-card pricing-card-pro">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-plan">Pro</div>
+          <div class="pricing-price">₹299<span>/month</span></div>
+          <ul class="pricing-features">
+            <li>✓ Unlimited verifications</li>
+            <li>✓ Verification history</li>
+            <li>✓ Detailed source breakdown</li>
+            <li>✓ Priority processing</li>
+            <li>✓ Email reports</li>
+          </ul>
+          <button class="btn-primary btn-full">Upgrade to Pro</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-mark">F</span>
+        <span class="logo-text">Factwise</span>
+      </div>
+      <p class="footer-tagline">Know what to trust.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact</a>
+      </div>
+      <p class="footer-copy">© 2026 Factwise. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
