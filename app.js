@@ -1,5 +1,5 @@
 const BACKEND_URL = 'https://factwise-backend.onrender.com';
-const SUPABASE_URL = 'https://dnxzkzpolkmwlhaqnfyy.supabase.co/rest/v1/';
+const SUPABASE_URL = 'https://dnxzkzpolkmwlhaqnfyy.supabase.co';
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRueHprenBvbGttd2xoYXFuZnl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc4NzU5MjIsImV4cCI6MjA5MzQ1MTkyMn0._2w-r8v0cLjxeHeYA71PQmg4sMulmlk6EMJymUNNF2c';
 
 
