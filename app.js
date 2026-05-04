@@ -343,3 +343,12 @@ async function handleLogin() {
 
 // ── Init ───────────────────────────────────────────────────────────────────────
 initAuth();
+
+// ── Expose functions to global scope ──────────────────────────────────────────
+window.scrollToChecker = scrollToChecker;
+window.verifyText = verifyText;
+window.resetChecker = resetChecker;
+window.signOut = signOut;
+window.handleSignup = handleSignup;
+window.handleLogin = handleLogin;
+window.loadHistory = loadHistory;
