@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://localhost:5000';
+const BACKEND_URL = 'https://factwise-backend.onrender.com';
 
 // ── Character Counter ──────────────────────────────────────────────────────────
 const inputText = document.getElementById('inputText');
